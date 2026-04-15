@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="VORTEX X Pro — The ultimate precision gaming mouse with 26,000 DPI, zero-latency wireless, and RGB underglow. Built for champions."/>
+  <meta name="author" content="Kalvin67"/>
+  <meta name="keywords" content="gaming mouse, VORTEX X Pro, precision mouse, wireless gaming, RGB mouse, high DPI"/>
+  <meta property="og:title" content="VORTEX X Pro — Gaming Mouse"/>
+  <meta property="og:description" content="26,000 DPI. 1ms response. Zero compromises. The VORTEX X Pro is built for those who play to win."/>
+  <meta property="og:type" content="website"/>
+  <!-- GitHub Pages live: https://kalvin67.github.io/Landing-Page/ -->
+  <title>VORTEX X Pro — Gaming Mouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#080808; --surface:#101010; --card:#141414; --border:#1f1f1f; --muted:#2e2e2e;
+      --text:#f0ece8; --text-dim:#666666;
+      --accent:#dc2626; --accent-dk:#b91c1c; --accent-glow:rgba(220,38,38,.12);
+      --ff-display:'Bebas Neue',sans-serif; --ff-body:'Nunito',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--ff-body);font-size:16px;overflow-x:hidden}
+    ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--bg)} ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .tag{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .section-header{margin-bottom:4rem} .section-header .tag{display:block;margin-bottom:.75rem}
+    .section-header h2{font-family:var(--ff-display);font-size:clamp(3rem,6vw,5.5rem);line-height:.93}
+    .section-header p{color:var(--text-dim);font-weight:300;max-width:480px;margin-top:1rem;line-height:1.8}
+    .btn-primary{display:inline-block;background:var(--accent);color:#fff;border:none;padding:1rem 2.2rem;font-family:var(--ff-mono);font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s}
+    .btn-primary:hover{background:var(--accent-dk);transform:translateY(-2px)}
+    .btn-ghost{display:inline-block;background:transparent;color:var(--text);border:1px solid var(--muted);padding:1rem 2.2rem;font-family:var(--ff-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-16px) rotate(-1.5deg)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    section{scroll-margin-top:80px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(8,8,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding .3s}
+    nav.scrolled{padding:.75rem 2.5rem}
+    .nav-logo{font-family:var(--ff-display);font-size:1.9rem;letter-spacing:.08em;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{color:var(--text-dim);text-decoration:none;font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta{background:var(--accent);color:#fff;border:none;padding:.6rem 1.4rem;font-family:var(--ff-mono);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .nav-cta:hover{background:var(--accent-dk)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:transform .3s,opacity .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity .3s}
+    .mobile-menu.active{opacity:1;pointer-events:all}
+    .mobile-menu a{font-family:var(--ff-display);font-size:3.5rem;letter-spacing:.06em;color:var(--text);text-decoration:none;transition:color .2s}
+    .mobile-menu a:hover,.mobile-menu a.cta{color:var(--accent)}
+
+    /* HERO */
+    #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+    #hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#1f1f1f 1px,transparent 1px);background-size:32px 32px;opacity:.6;pointer-events:none}
+    #hero::after{content:'';position:absolute;top:10%;right:0;width:55%;height:80%;background:radial-gradient(ellipse at 80% 50%,rgba(220,38,38,.08) 0%,transparent 65%);pointer-events:none}
+    .hero-content{position:relative;z-index:2;padding:4rem 2.5rem}
+    .hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+    .hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--accent);flex-shrink:0}
+    .hero-headline{font-family:var(--ff-display);font-size:clamp(4rem,8vw,9rem);line-height:.9;color:var(--text);margin-bottom:1.5rem}
+    .hero-headline em{font-style:normal;color:var(--accent);display:block}
+    .hero-sub{font-size:1rem;color:var(--text-dim);max-width:380px;margin-bottom:2.5rem;font-weight:300;line-height:1.8}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+    .hero-visual{position:relative;z-index:2;height:100vh;display:flex;align-items:center;justify-content:center}
+    .mouse-wrap{position:relative;width:100%;max-width:400px}
+    .mouse-svg{width:100%;filter:drop-shadow(0 20px 70px rgba(220,38,38,.3));animation:float 4s ease-in-out infinite}
+    .badge{position:absolute;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);padding:.9rem 1.1rem;animation:fadeUp .8s both}
+    .badge:nth-child(2){bottom:30%;right:-1.5rem;animation-delay:.5s}
+    .badge:nth-child(3){top:28%;left:-1.5rem;animation-delay:.8s}
+    .badge-val{font-family:var(--ff-display);font-size:1.9rem;color:var(--accent);line-height:1}
+    .badge-lbl{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:.2rem}
+    .scroll-hint{position:absolute;bottom:2rem;left:2.5rem;display:flex;align-items:center;gap:.75rem;font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);animation:fadeUp 1s 1.2s both}
+    .scroll-hint .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 1.5s ease-in-out infinite}
+
+    /* STATS */
+    #stats{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .stat-item{padding:2rem;text-align:center;border-right:1px solid var(--border)}
+    .stat-item:last-child{border-right:none}
+    .stat-val{font-family:var(--ff-display);font-size:3rem;color:var(--accent);line-height:1;margin-bottom:.3rem}
+    .stat-lbl{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+
+    /* FEATURES */
+    #features{padding:8rem 0}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+    .feature-card{padding:2.5rem;border:1px solid var(--border);margin:-1px 0 0 -1px;transition:background .3s,border-color .3s;cursor:default}
+    .feature-card:hover{background:var(--card);border-color:var(--accent);z-index:1}
+    .feature-icon{width:46px;height:46px;border:1px solid var(--muted);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.2rem;transition:border-color .3s,background .3s}
+    .feature-card:hover .feature-icon{border-color:var(--accent);background:var(--accent-glow)}
+    .feature-title{font-family:var(--ff-display);font-size:1.65rem;letter-spacing:.04em;margin-bottom:.75rem}
+    .feature-desc{color:var(--text-dim);font-size:.875rem;line-height:1.8;font-weight:300}
+
+    /* INTERACTIVE */
+    #interactive{padding:8rem 0;background:var(--surface)}
+    .interactive-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+    /* Color Picker */
+    .picker-box h3{font-family:var(--ff-display);font-size:2.8rem;margin-bottom:.4rem}
+    .picker-box>p{color:var(--text-dim);font-size:.9rem;font-weight:300;line-height:1.8;margin-bottom:2rem}
+    .swatch-row{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:1.75rem}
+    .swatch{width:44px;height:44px;border-radius:50%;border:2px solid transparent;cursor:pointer;position:relative;transition:transform .2s,border-color .2s}
+    .swatch:hover{transform:scale(1.12)}
+    .swatch.active{border-color:var(--text);transform:scale(1.15)}
+    .swatch.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.9);font-weight:700}
+    .mouse-preview{background:var(--bg);border:1px solid var(--border);padding:2rem;text-align:center}
+    .preview-svg{width:100%;max-width:130px;display:block;margin:0 auto;transition:filter .4s}
+    .preview-label{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:1rem}
+    .preview-name{font-family:var(--ff-display);font-size:1.6rem;margin-top:.25rem}
+
+    /* Countdown */
+    .timer-box h3{font-family:var(--ff-display);font-size:2.8rem;margin-bottom:.4rem}
+    .timer-box>p{color:var(--text-dim);font-size:.9rem;font-weight:300;line-height:1.8;margin-bottom:2rem}
+    .drop-banner{display:flex;align-items:center;gap:.85rem;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.22);padding:.85rem 1.2rem;margin-bottom:1.75rem}
+    .drop-banner .blink-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:blink 1.2s ease-in-out infinite;flex-shrink:0}
+    .drop-banner span{font-family:var(--ff-mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+    .timer-units{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.75rem}
+    .t-unit{background:var(--bg);border:1px solid var(--border);padding:1.2rem .5rem;text-align:center}
+    .t-val{font-family:var(--ff-display);font-size:2.8rem;color:var(--text);line-height:1;letter-spacing:.02em}
+    .t-lbl{font-family:var(--ff-mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-top:.35rem}
+    .notify-wrap{display:flex}
+    .notify-input{flex:1;background:var(--bg);border:1px solid var(--muted);border-right:none;padding:.9rem 1rem;color:var(--text);font-family:var(--ff-mono);font-size:.75rem;outline:none;transition:border-color .2s}
+    .notify-input::placeholder{color:var(--text-dim)}
+    .notify-input:focus{border-color:var(--accent)}
+    .notify-btn{background:var(--accent);color:#fff;border:none;padding:.9rem 1.4rem;font-family:var(--ff-mono);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
+    .notify-btn:hover{background:var(--accent-dk)}
+    .notify-ok{display:none;font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.08em;color:var(--accent);padding:.9rem 0;animation:fadeUp .4s ease}
+
+    /* SPECS */
+    #specs{padding:8rem 0}
+    .specs-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:start}
+    .specs-table{width:100%;border-collapse:collapse}
+    .specs-table tr{border-bottom:1px solid var(--border)}
+    .specs-table td{padding:1rem 0;font-size:.875rem;vertical-align:top}
+    .specs-table td:first-child{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);width:40%;padding-right:1rem}
+    .price-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent);padding:3rem}
+    .price-tag{font-family:var(--ff-display);font-size:4.5rem;line-height:1;margin-bottom:.25rem}
+    .price-tag sup{font-size:2rem;vertical-align:super;color:var(--text-dim)}
+    .price-note{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2rem}
+    .divider{height:1px;background:var(--border);margin:1.75rem 0}
+    .perk{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:.875rem}
+    .perk::before{content:'✓';font-family:var(--ff-mono);font-size:.7rem;color:var(--accent);flex-shrink:0}
+    .full-w{width:100%;text-align:center;display:block;padding:1.1rem;margin-bottom:.75rem}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:4rem 0 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-logo{font-family:var(--ff-display);font-size:2.5rem;letter-spacing:.06em;color:var(--text);text-decoration:none;display:block;margin-bottom:1rem}
+    .footer-logo span{color:var(--accent)}
+    .footer-about{color:var(--text-dim);font-size:.85rem;font-weight:300;line-height:1.8;max-width:240px;margin-bottom:1.5rem}
+    .socials{display:flex;gap:.75rem}
+    .social-btn{width:36px;height:36px;border:1px solid var(--muted);display:flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;font-size:.75rem;font-family:var(--ff-mono);transition:border-color .2s,color .2s,background .2s}
+    .social-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+    .footer-col h4{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1.25rem}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:.6rem}
+    .footer-col a{color:var(--text);text-decoration:none;font-size:.875rem;font-weight:300;transition:color .2s}
+    .footer-col a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .copyright{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.08em;color:var(--text-dim)}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.08em;color:var(--text-dim);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--accent)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .features-grid{grid-template-columns:repeat(2,1fr)}
+      .interactive-grid{grid-template-columns:1fr;gap:3rem}
+      .specs-layout{grid-template-columns:1fr;gap:3rem}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    /* BACK TO TOP */
+    #backToTop{position:fixed;bottom:2rem;right:2rem;z-index:200;background:var(--accent);color:#fff;border:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;opacity:0;pointer-events:none;transition:opacity .3s,background .2s,transform .2s}
+    #backToTop.show{opacity:1;pointer-events:all}
+    #backToTop:hover{background:var(--accent-dk);transform:translateY(-3px)}
+
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem}
+      .nav-links,.nav-cta{display:none}
+      .hamburger{display:flex}
+      .mobile-menu{display:flex}
+      #hero{grid-template-columns:1fr;padding-top:70px}
+      .hero-content{padding:3rem 1.5rem 2rem}
+      .hero-visual{height:52vh}
+      .badge:nth-child(2){right:.5rem;bottom:8%}
+      .badge:nth-child(3){display:none}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .stat-item:nth-child(2){border-right:none}
+      .features-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;gap:1rem;text-align:center}
+      .container{padding:0 1.5rem}
+      #features,#interactive,#specs{padding:5rem 0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">VORT<span>E</span>X</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#interactive">Explore</a></li>
+      <li><a href="#specs">Specs</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('specs').scrollIntoView({behavior:'smooth'})">Order Now</button>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#interactive" class="mobile-nav-link">Explore</a>
+    <a href="#specs" class="mobile-nav-link">Specs</a>
+    <a href="#specs" class="mobile-nav-link cta">Order Now</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="tag">New 2025 Edition</span></div>
+      <h1 class="hero-headline">Click With<em>Precision.</em></h1>
+      <p class="hero-sub">The VORTEX X Pro is a 26,000 DPI optical gaming mouse built for those who play to win — engineered for speed, comfort, and total control.</p>
+      <div class="hero-actions">
+        <a href="#specs"    class="btn-primary">Order Now — ₱3,999</a>
+        <a href="#features" class="btn-ghost">Explore Features</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="mouse-wrap">
+        <svg class="mouse-svg" viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#242424"/><stop offset="100%" stop-color="#0e0e0e"/></linearGradient>
+            <linearGradient id="topGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#2e2e2e"/><stop offset="100%" stop-color="#181818"/></linearGradient>
+            <filter id="rglow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <path d="M 60 120 Q 55 40 140 30 Q 225 40 220 120 L 230 310 Q 230 355 140 358 Q 50 355 50 310 Z" fill="url(#bodyGrad)" stroke="#2a2a2a" stroke-width="1.5"/>
+          <path d="M 80 118 Q 78 55 140 46 Q 202 55 200 118 L 208 240 Q 208 280 140 282 Q 72 280 72 240 Z" fill="url(#topGrad)" stroke="#333" stroke-width="1"/>
+          <line x1="140" y1="46" x2="140" y2="200" stroke="#111" stroke-width="2"/>
+          <path d="M 80 118 Q 78 55 140 46 L 140 200 Q 72 200 72 240 L 72 118" fill="url(#topGrad)" stroke="#222" stroke-width="1"/>
+          <path d="M 200 118 Q 202 55 140 46 L 140 200 Q 208 200 208 240 L 208 118" fill="url(#topGrad)" stroke="#222" stroke-width="1"/>
+          <rect x="124" y="70" width="32" height="52" rx="16" fill="#161616" stroke="#dc2626" stroke-width="1.5"/>
+          <rect x="128" y="76" width="24" height="40" rx="12" fill="#0a0a0a"/>
+          <line x1="124" y1="88" x2="156" y2="88" stroke="#dc2626" stroke-width="1" opacity=".5"/>
+          <line x1="124" y1="96" x2="156" y2="96" stroke="#dc2626" stroke-width="1" opacity=".5"/>
+          <line x1="124" y1="104" x2="156" y2="104" stroke="#dc2626" stroke-width="1" opacity=".5"/>
+          <rect x="56" y="175" width="16" height="24" rx="4" fill="#1c1c1c" stroke="#dc2626" stroke-width="1.2" filter="url(#rglow)"/>
+          <rect x="56" y="204" width="16" height="24" rx="4" fill="#1c1c1c" stroke="#dc2626" stroke-width="1.2" filter="url(#rglow)"/>
+          <path d="M 90 348 Q 140 358 190 348" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" filter="url(#rglow)" opacity=".8"/>
+          <circle cx="140" cy="218" r="7" fill="#1a1a1a" stroke="#dc2626" stroke-width="1.2"/>
+          <circle cx="140" cy="218" r="3" fill="#dc2626" filter="url(#rglow)"/>
+          <text x="140" y="295" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="13" fill="#dc2626" letter-spacing="3" opacity=".7">VORTEX</text>
+          <text x="140" y="310" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#333" letter-spacing="4">X PRO</text>
+          <path d="M 58 130 L 58 300 Q 58 340 90 348" fill="none" stroke="#dc2626" stroke-width="2" opacity=".5" filter="url(#rglow)"/>
+          <path d="M 222 130 L 222 300 Q 222 340 190 348" fill="none" stroke="#dc2626" stroke-width="2" opacity=".5" filter="url(#rglow)"/>
+        </svg>
+        <div class="badge"><div class="badge-val">26K</div><div class="badge-lbl">DPI Max</div></div>
+        <div class="badge"><div class="badge-val">1ms</div><div class="badge-lbl">Response</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="dot"></div>Scroll to explore</div>
+  </section>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><div class="stat-val">26K</div><div class="stat-lbl">Max DPI</div></div>
+        <div class="stat-item reveal" style="transition-delay:.1s"><div class="stat-val">1ms</div><div class="stat-lbl">Response Time</div></div>
+        <div class="stat-item reveal" style="transition-delay:.2s"><div class="stat-val">95g</div><div class="stat-lbl">Ultralight</div></div>
+        <div class="stat-item reveal" style="transition-delay:.3s"><div class="stat-val">2yr</div><div class="stat-lbl">Warranty</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Why VORTEX X Pro</span>
+        <h2>Built to<br>Dominate.</h2>
+        <p>Every gram removed. Every click calibrated. The X Pro is engineered around the needs of competitive players and long study sessions.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title">26K DPI Sensor</div>
+          <p class="feature-desc">A custom optical sensor with zero acceleration or smoothing. Every millimeter of movement maps 1:1 to your crosshair.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.08s">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">1ms Polling Rate</div>
+          <p class="feature-desc">8000Hz wireless polling — the same latency as wired. Your click registers before your brain even registers the thought.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.16s">
+          <div class="feature-icon">🏋️</div>
+          <div class="feature-title">95g Ultralight</div>
+          <p class="feature-desc">Honeycomb shell with precision-cut vents sheds weight without losing rigidity. Built for claw, palm, and fingertip grips.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.24s">
+          <div class="feature-icon">💡</div>
+          <div class="feature-title">Zonal RGB</div>
+          <p class="feature-desc">Per-zone RGB with 16.8M colors on the scroll wheel, logo, and underglow strip. App-synced with your whole setup.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.32s">
+          <div class="feature-icon">🖱️</div>
+          <div class="feature-title">Omron Switches</div>
+          <p class="feature-desc">80-million-click rated Omron D2FC switches under every button. Crisp, consistent, and built for years of tournament play.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.40s">
+          <div class="feature-icon">🔋</div>
+          <div class="feature-title">80hr Battery</div>
+          <p class="feature-desc">80 hours wireless per charge. USB-C charging cable included — quick-charge to 50% in 30 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE -->
+  <section id="interactive">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Customize & Reserve</span>
+        <h2>Make It<br>Yours.</h2>
+        <p>Pick your colorway, then sign up before the next limited drop sells out.</p>
+      </div>
+
+      <div class="interactive-grid">
+
+        <!-- ELEMENT 1: Color Picker -->
+        <div class="picker-box reveal">
+          <h3>Choose Colorway</h3>
+          <p>Click a swatch to preview the colorway on your mouse before you order.</p>
+          <div class="swatch-row">
+            <div class="swatch active" data-color="#111111" data-name="Phantom Black"  style="background:#111;outline:1px solid #444"></div>
+            <div class="swatch"        data-color="#dc2626" data-name="Crimson Red"    style="background:#dc2626"></div>
+            <div class="swatch"        data-color="#ececec" data-name="Arctic White"   style="background:#ececec"></div>
+            <div class="swatch"        data-color="#1a2a40" data-name="Midnight Navy"  style="background:#1a2a40"></div>
+            <div class="swatch"        data-color="#1a2e1a" data-name="Ghost Green"    style="background:#1a2e1a"></div>
+          </div>
+          <div class="mouse-preview">
+            <svg class="preview-svg" id="previewSvg" viewBox="0 0 140 190" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="pglow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <path d="M 30 60 Q 28 20 70 15 Q 112 20 110 60 L 115 155 Q 115 177 70 179 Q 25 177 25 155 Z" fill="#111"/>
+              <path id="pBody" d="M 38 59 Q 36 26 70 21 Q 104 26 102 59 L 106 120 Q 106 140 70 141 Q 34 140 34 120 Z" fill="#111111"/>
+              <rect x="61" y="34" width="18" height="28" rx="9" fill="#0a0a0a" stroke="#dc2626" stroke-width="1.2"/>
+              <line x1="61" y1="42" x2="79" y2="42" stroke="#dc2626" stroke-width=".8" opacity=".6"/>
+              <line x1="61" y1="47" x2="79" y2="47" stroke="#dc2626" stroke-width=".8" opacity=".6"/>
+              <line x1="61" y1="52" x2="79" y2="52" stroke="#dc2626" stroke-width=".8" opacity=".6"/>
+              <path d="M 44 174 Q 70 179 96 174" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" filter="url(#pglow)" opacity=".8"/>
+              <text x="70" y="158" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="7" fill="#dc2626" letter-spacing="2" opacity=".7">VORTEX</text>
+            </svg>
+            <div class="preview-label">Selected Colorway</div>
+            <div class="preview-name" id="previewName">Phantom Black</div>
+          </div>
+        </div>
+
+        <!-- ELEMENT 2: Countdown + Notify -->
+        <div class="timer-box reveal" style="transition-delay:.1s">
+          <h3>Next Drop</h3>
+          <p>Wave 3 opens soon — only 60 units available worldwide. Join the list and be first in line.</p>
+          <div class="drop-banner">
+            <div class="blink-dot"></div>
+            <span>Wave 3 · Limited Drop · 60 Units</span>
+          </div>
+          <div class="timer-units">
+            <div class="t-unit"><div class="t-val" id="days">00</div><div class="t-lbl">Days</div></div>
+            <div class="t-unit"><div class="t-val" id="hours">00</div><div class="t-lbl">Hours</div></div>
+            <div class="t-unit"><div class="t-val" id="minutes">00</div><div class="t-lbl">Mins</div></div>
+            <div class="t-unit"><div class="t-val" id="seconds">00</div><div class="t-lbl">Secs</div></div>
+          </div>
+          <div class="notify-wrap" id="notifyForm">
+            <input type="email" class="notify-input" id="emailInput" placeholder="your@email.com"/>
+            <button class="notify-btn" id="notifyBtn">Notify Me</button>
+          </div>
+          <div class="notify-ok" id="notifyOk">✓ &nbsp;You're on the list. We'll email you when Wave 3 opens.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section id="specs">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Technical Specifications</span>
+        <h2>The Numbers<br>Don't Lie.</h2>
+      </div>
+      <div class="specs-layout">
+        <div class="reveal">
+          <table class="specs-table">
+            <tr><td>Sensor</td><td>Custom Optical (PAW3395)</td></tr>
+            <tr><td>Max DPI</td><td>26,000 DPI (100–26,000 adjustable)</td></tr>
+            <tr><td>Polling Rate</td><td>125 / 500 / 1000 / 4000 / 8000 Hz</td></tr>
+            <tr><td>Switches</td><td>Omron D2FC (80M click rated)</td></tr>
+            <tr><td>Weight</td><td>95g (without cable)</td></tr>
+            <tr><td>Connectivity</td><td>2.4GHz Wireless + USB-C Wired</td></tr>
+            <tr><td>Battery</td><td>80 hours (RGB off) / 50 hours (RGB on)</td></tr>
+            <tr><td>RGB Zones</td><td>3 (scroll wheel, logo, underglow)</td></tr>
+            <tr><td>Cable</td><td>1.8m braided USB-C (included)</td></tr>
+            <tr><td>Compatibility</td><td>Windows / macOS / Linux</td></tr>
+            <tr><td>Dimensions</td><td>125 × 65 × 40 mm</td></tr>
+            <tr><td>Warranty</td><td>2 Years (PH)</td></tr>
+          </table>
+        </div>
+        <div class="price-card reveal" style="transition-delay:.15s">
+          <div class="price-tag"><sup>₱</sup>3,999</div>
+          <div class="price-note">Starting Price — Wireless Edition</div>
+          <div class="divider"></div>
+          <div class="perk">Free nationwide shipping (Philippines)</div>
+          <div class="perk">Choose your colorway at checkout</div>
+          <div class="perk">2-year local warranty included</div>
+          <div class="perk">VORTEX software + cable in box</div>
+          <div class="perk">14-day hassle-free returns</div>
+          <div class="divider"></div>
+          <button class="btn-primary full-w">Add to Cart</button>
+          <button class="btn-ghost full-w">Download Spec Sheet</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="footer-logo">VORT<span>E</span>X</a>
+          <p class="footer-about">Precision gaming peripherals designed and assembled in the Philippines for players who demand the very best.</p>
+          <div class="socials">
+            <a href="#" class="social-btn">fb</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+            <a href="#" class="social-btn">dc</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#specs">Specifications</a></li>
+            <li><a href="#interactive">Colorways</a></li>
+            <li><a href="#">Compare Models</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#">Discord Server</a></li>
+            <li><a href="#">Build Guides</a></li>
+            <li><a href="#">YouTube Channel</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 VORTEX Peripherals. All rights reserved. Made with ❤️ in Baguio, PH.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    /* NAV shrink */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+    });
+
+    /* Back to top */
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* Mobile menu */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }));
+
+    /* Scroll reveal */
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* Color picker */
+    const swatches  = document.querySelectorAll('.swatch');
+    const pBody     = document.getElementById('pBody');
+    const pName     = document.getElementById('previewName');
+    swatches.forEach(sw => sw.addEventListener('click', () => {
+      swatches.forEach(s => s.classList.remove('active'));
+      sw.classList.add('active');
+      pBody.setAttribute('fill', sw.dataset.color);
+      pName.textContent = sw.dataset.name;
+    }));
+
+    /* Countdown timer */
+    const target = new Date();
+    target.setDate(target.getDate() + 10);
+    target.setHours(0, 0, 0, 0);
+    const pad = n => String(n).padStart(2, '0');
+    function tick() {
+      const d = target - Date.now();
+      if (d <= 0) return;
+      document.getElementById('days').textContent    = pad(Math.floor(d / 86400000));
+      document.getElementById('hours').textContent   = pad(Math.floor(d % 86400000 / 3600000));
+      document.getElementById('minutes').textContent = pad(Math.floor(d % 3600000 / 60000));
+      document.getElementById('seconds').textContent = pad(Math.floor(d % 60000 / 1000));
+    }
+    tick(); setInterval(tick, 1000);
+
+    /* Notify form */
+    document.getElementById('notifyBtn').addEventListener('click', () => {
+      const v = document.getElementById('emailInput').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+        const i = document.getElementById('emailInput');
+        i.style.borderColor = '#dc2626';
+        setTimeout(() => i.style.borderColor = '', 1800);
+        return;
+      }
+      document.getElementById('notifyForm').style.display = 'none';
+      document.getElementById('notifyOk').style.display  = 'block';
+    });
+    document.getElementById('emailInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('notifyBtn').click();
+    });
+  </script>
+</body>
+</html>

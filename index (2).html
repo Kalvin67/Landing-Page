@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VORTEX X Pro — Gaming Mouse</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── RESET ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── DESIGN TOKENS ─────────────────────────── */
+    :root {
+      /* Colors */
+      --bg:           #080808;
+      --surface:      #101010;
+      --card:         #141414;
+      --border:       #1f1f1f;
+      --muted:        #2e2e2e;
+      --text:         #f0ece8;
+      --text-dim:     #666666;
+      --accent:       #dc2626;
+      --accent-dk:    #b91c1c;
+      --accent-glow:  rgba(220, 38, 38, 0.12);
+
+      /* Typography */
+      --ff-display: 'Bebas Neue',    sans-serif;
+      --ff-body:    'Nunito',        sans-serif;
+      --ff-mono:    'JetBrains Mono',monospace;
+    }
+
+    /* ── BASE ──────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── UTILITIES ─────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .tag {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .section-header        { margin-bottom: 4rem; }
+    .section-header .tag   { display: block; margin-bottom: 0.75rem; }
+    .section-header h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.93;
+      letter-spacing: 0.02em;
+    }
+    .section-header p {
+      color: var(--text-dim);
+      font-weight: 300;
+      max-width: 480px;
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    /* ── BUTTONS ───────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 1rem 2.2rem;
+      font-family: var(--ff-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--muted);
+      padding: 1rem 2.2rem;
+      font-family: var(--ff-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── ANIMATIONS ────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0)    rotate(-1.5deg); }
+      50%      { transform: translateY(-16px) rotate(-1.5deg); }
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1;   }
+      50%      { opacity: 0.2; }
+    }
+
+    /* Scroll-triggered reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav><!-- nav coming next commit --></nav>
+  </header>
+
+  <main>
+    <section id="hero"        style="min-height:100vh;padding:6rem 2rem;display:flex;align-items:center;">
+      <span class="tag">Hero — next commit</span>
+    </section>
+    <div id="stats"           style="padding:2rem;border-top:1px solid var(--border);">
+      <span class="tag">Stats — coming soon</span>
+    </div>
+    <section id="features"    style="padding:6rem 2rem;">
+      <span class="tag">Features — coming soon</span>
+    </section>
+    <section id="interactive" style="padding:6rem 2rem;background:var(--surface);">
+      <span class="tag">Interactive — coming soon</span>
+    </section>
+    <section id="specs"       style="padding:6rem 2rem;">
+      <span class="tag">Specs — coming soon</span>
+    </section>
+  </main>
+
+  <footer style="padding:2rem;border-top:1px solid var(--border);">
+    <span class="tag">Footer — coming soon</span>
+  </footer>
+
+</body>
+</html>
